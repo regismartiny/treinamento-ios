@@ -11,7 +11,9 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var lblBed: UILabel!
+    @IBOutlet weak var lblBath: UILabel!
     private var bedCount = 1
+    private var bathCount = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,25 +32,45 @@ class ViewController: UIViewController {
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
-    private func updateLabels() {
+    private func updateBedLabel() {
         var txt = String(self.bedCount) + " bed"
         if (self.bedCount > 1) {
             txt = txt + "s"
         }
         self.lblBed.text = txt;
     }
+    
+    private func updateBathLabel() {
+        var txt = String(self.bathCount) + " bath"
+        if (self.bathCount > 1) {
+            txt = txt + "s"
+        }
+        self.lblBath.text = txt;
+    }
 
     @IBAction func plusBed(_ sender: UIButton) {
         self.bedCount += 1
-        self.updateLabels()
+        self.updateBedLabel()
     }
-    
     
     @IBAction func minusBed(_ sender: UIButton) {
         if (self.bedCount > 0) {
             self.bedCount -= 1
-            self.updateLabels()
+            self.updateBedLabel()
         }
     }
+    
+    @IBAction func minusBath(_ sender: UIButton) {
+        if (self.bathCount > 0) {
+            self.bathCount -= 1
+            self.updateBathLabel()
+        }
+    }
+
+    @IBAction func plusBath(_ sender: UIButton) {
+        self.bathCount += 1
+        self.updateBathLabel()
+    }
+    
 }
 
