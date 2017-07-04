@@ -20,6 +20,14 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func helpClick(_ sender: UIButton) {
+        
+    }
 
+    @IBAction func infoClick(_ sender: UIButton) {
+        let mainStoryboard = self.storyboard
+        let vc : UIViewController = mainStoryboard!.instantiateViewController(withIdentifier: "InfoViewController") as UIViewController
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 }
 
