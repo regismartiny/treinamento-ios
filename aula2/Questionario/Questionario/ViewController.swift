@@ -19,27 +19,27 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var optGender: UISegmentedControl!
     
-    private enum Gender {
-        case MASCULINO
-        case FEMININO
-    }
+    private var Gender = [
+        0: "MASCULINO",
+        1: "FEMININO"
+    ]
     
-    private enum DayOfWeek {
-        case DOMINGO
-        case SEGUNDA
-        case TERCA
-        case QUARTA
-        case QUINTA
-        case SEXTA
-        case SABADO
-    }
+    private var DayOfWeek = [
+        0: "DOMINGO",
+        1: "SEGUNDA-FEIRA",
+        2: "TERÇA-FEIRA",
+        3: "QUARTA-FEIRA",
+        4: "QUINTA-FEIRA",
+        5: "SEXTA-FEIRA",
+        6: "SÁBADO"
+    ]
     
-    private enum Class {
-        case MATEMATICA
-        case PORTUGUES
-        case CIENCIAS
-        case GEOGRAFIA
-    }
+    private var Class = [
+        0: "MATEMÁTICA",
+        1: "PORTUGUÊS",
+        2: "CIÊNCIAS",
+        3: "GEOGRAFIA"
+    ]
     
     private enum Operation {
         case constant(Double)
@@ -72,7 +72,7 @@ class ViewController: UIViewController {
     @IBAction func submitForm(_ sender: UIButton) {
         
         if (self.validateForm()) {
-            let gender = self.optGender.selectedSegmentIndex == 0 ? Gender.MASCULINO : Gender.FEMININO
+            let gender = Gender[self.optGender.selectedSegmentIndex]
             //submit the form...
         }
         
