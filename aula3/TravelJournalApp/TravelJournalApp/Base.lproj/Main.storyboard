@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16D30" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TravelJournalApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Photos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pbg-dc-dKM">
+                                <rect key="frame" x="153.5" y="11" width="68" height="18"/>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="18"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view opaque="NO" alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WPo-mM-4jg">
+                                <rect key="frame" x="42" y="66" width="290" height="207"/>
+                                <color key="backgroundColor" red="0.81021292099999997" green="0.81021292099999997" blue="0.81021292099999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="290" id="6Ud-yc-2bl"/>
+                                    <constraint firstAttribute="height" constant="207" id="ftO-gv-kM2"/>
+                                </constraints>
+                            </view>
+                            <view opaque="NO" alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kGA-Qn-Mi3">
+                                <rect key="frame" x="55" y="56" width="265" height="182"/>
+                                <color key="backgroundColor" red="0.81021292099999997" green="0.81021292099999997" blue="0.81021292099999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="265" id="H6N-HS-P7c"/>
+                                    <constraint firstAttribute="height" constant="182" id="W2M-Ob-6HM"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X7q-vb-iYu">
+                                <rect key="frame" x="32" y="11" width="21" height="18"/>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="18"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Bitmap" translatesAutoresizingMaskIntoConstraints="NO" id="o7x-1L-TAg">
+                                <rect key="frame" x="32" y="77" width="310" height="250"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="250" id="aDf-Dv-oTK"/>
+                                    <constraint firstAttribute="width" constant="310" id="yhy-IY-FFr"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="pbg-dc-dKM" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="8Be-jW-Is1"/>
+                            <constraint firstItem="pbg-dc-dKM" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="11" id="LR4-n1-Ohp"/>
+                            <constraint firstItem="WPo-mM-4jg" firstAttribute="top" secondItem="pbg-dc-dKM" secondAttribute="bottom" constant="37" id="Uyo-rP-piJ"/>
+                            <constraint firstItem="o7x-1L-TAg" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="gOY-Nf-wnA"/>
+                            <constraint firstItem="X7q-vb-iYu" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="11" id="jbt-lB-c3V"/>
+                            <constraint firstItem="o7x-1L-TAg" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="57" id="lEh-81-e5L"/>
+                            <constraint firstItem="WPo-mM-4jg" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="lVA-EJ-G0B"/>
+                            <constraint firstItem="kGA-Qn-Mi3" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ldl-XN-3l7"/>
+                            <constraint firstItem="kGA-Qn-Mi3" firstAttribute="top" secondItem="pbg-dc-dKM" secondAttribute="bottom" constant="27" id="wGL-li-lLi"/>
+                            <constraint firstItem="X7q-vb-iYu" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="16" id="yY3-Oc-Gx2"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-79.200000000000003" y="138.98050974512745"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Bitmap" width="242" height="219"/>
+    </resources>
+</document>
