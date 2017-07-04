@@ -56,7 +56,7 @@
                                     <constraint firstAttribute="height" constant="20" id="lDJ-pI-20a"/>
                                 </constraints>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MbV-dw-gYB">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MbV-dw-gYB" customClass="RegularButton" customModule="CleaningApp" customModuleProvider="target">
                                 <rect key="frame" x="178" y="102" width="19" height="19"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -65,11 +65,11 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HBv-l1-Pr8">
-                                <rect key="frame" x="197" y="110" width="178" height="3"/>
+                                <rect key="frame" x="197" y="110" width="200" height="3"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="0.79797196061643838" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="3" id="6Yl-A8-cOQ"/>
-                                    <constraint firstAttribute="width" constant="178" id="8Tl-i5-ATl"/>
+                                    <constraint firstAttribute="width" constant="200" id="8Tl-i5-ATl"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="STEP 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LfO-G5-N9p">

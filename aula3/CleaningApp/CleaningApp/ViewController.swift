@@ -24,7 +24,7 @@ class ViewController: UIViewController {
     @IBAction func nextStepAction(_ sender: UIButton) {
         let mainStoryboard = self.storyboard
         let vc : UIViewController = mainStoryboard!.instantiateViewController(withIdentifier: "SecondViewController") as UIViewController
-        self.present(vc, animated: true, completion: nil)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 
 }
