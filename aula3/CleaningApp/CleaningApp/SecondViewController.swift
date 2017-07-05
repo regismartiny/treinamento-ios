@@ -15,6 +15,12 @@ class SecondViewController : UIViewController {
     }
     
     @IBAction func back(_ sender: UIButton) {
-        self.navigationController?.popToRootViewController(animated: true)
+        self.navigationController?.popViewController(animated: true)
     }
+    @IBAction func nextStepAction(_ sender: UIButton) {
+        let mainStoryboard = self.storyboard
+        let vc : UIViewController = mainStoryboard!.instantiateViewController(withIdentifier: "ThirdViewController") as UIViewController
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
 }

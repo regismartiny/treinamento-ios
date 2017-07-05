@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RegularButton : UIButton {
+class RoundButton : UIButton {
     override func awakeFromNib() {
         self.layer.cornerRadius = 9.5
     }
