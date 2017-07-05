@@ -15,6 +15,8 @@
 		F440C7F31F0BB800002170BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F440C7F21F0BB800002170BF /* Assets.xcassets */; };
 		F440C7F61F0BB800002170BF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F440C7F41F0BB800002170BF /* LaunchScreen.storyboard */; };
 		F4F6C4D91F0D2BAC00EE9643 /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F6C4D81F0D2BAC00EE9643 /* ThirdViewController.swift */; };
+		F4F6C4DB1F0D34D800EE9643 /* BorderedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F6C4DA1F0D34D800EE9643 /* BorderedButton.swift */; };
+		F4F6C4DD1F0D394C00EE9643 /* FinalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F6C4DC1F0D394C00EE9643 /* FinalViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		F440C7F51F0BB800002170BF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F440C7F71F0BB800002170BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F4F6C4D81F0D2BAC00EE9643 /* ThirdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
+		F4F6C4DA1F0D34D800EE9643 /* BorderedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BorderedButton.swift; sourceTree = "<group>"; };
+		F4F6C4DC1F0D394C00EE9643 /* FinalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinalViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +73,8 @@
 				F4225EFA1F0BC9760074B155 /* SecondViewController.swift */,
 				F4F6C4D81F0D2BAC00EE9643 /* ThirdViewController.swift */,
 				F4225EFC1F0BCFFE0074B155 /* RoundButton.swift */,
+				F4F6C4DA1F0D34D800EE9643 /* BorderedButton.swift */,
+				F4F6C4DC1F0D394C00EE9643 /* FinalViewController.swift */,
 			);
 			path = CleaningApp;
 			sourceTree = "<group>";
@@ -146,7 +152,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				F4225EFD1F0BCFFE0074B155 /* RoundButton.swift in Sources */,
+				F4F6C4DD1F0D394C00EE9643 /* FinalViewController.swift in Sources */,
 				F4225EFB1F0BC9760074B155 /* SecondViewController.swift in Sources */,
+				F4F6C4DB1F0D34D800EE9643 /* BorderedButton.swift in Sources */,
 				F4F6C4D91F0D2BAC00EE9643 /* ThirdViewController.swift in Sources */,
 				F440C7EE1F0BB800002170BF /* ViewController.swift in Sources */,
 				F440C7EC1F0BB800002170BF /* AppDelegate.swift in Sources */,
