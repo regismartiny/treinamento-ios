@@ -22,6 +22,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     var categorias = [[String]]()
     
+    var expandedSections = [Int]()
+    
     @IBOutlet weak var tableView: UITableView!
     
     
@@ -71,15 +73,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.categorias[section].count
+        if (self.expandedSections.contains(section)) {
+            return self.categorias[section].count
+        } else {
+            return self.categorias[section].count > 3 ? 4 : self.categorias[section].count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //verificar se esta deve exibir o botao de ver mais
-        if (  )) == 4) {
+        if ( indexPath.row == 3 && !expandedSections.contains(indexPath.section)) {
             return tableView.dequeueReusableCell(withIdentifier: ViewMoreUITableViewCell.instanceNib) as! ViewMoreUITableViewCell
         }
-        
         
         let cell = tableView.dequeueReusableCell(withIdentifier: RegularUITableViewCell.instanceNib) as! RegularUITableViewCell
         
@@ -90,21 +95,19 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return cell
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if ( ((indexPath.item + 1) / (indexPath.section + 1)) > 4) {
-            return 0
-        } else {
-            return 30.0
-        }
-    }
+
     
     // MARK: DELEGATE METHODS
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         if let element = tableView.cellForRow(at: indexPath) as? RegularUITableViewCell {
             print("selecionou \(String(describing: element.itemLabel.text!))")
 
         } else if tableView.cellForRow(at: indexPath) as? ViewMoreUITableViewCell != nil {
             print("ver mais selecionado")
+            self.expandedSections.removeAll()
+            self.expandedSections.append(indexPath.section);
+            tableView.reloadData()
         }
     }
     
