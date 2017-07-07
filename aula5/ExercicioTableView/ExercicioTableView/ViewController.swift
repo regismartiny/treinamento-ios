@@ -22,7 +22,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     var categorias = [[String]]()
     
-    var expandedSections = [Int]()
+    var expandedSection = -1
+    
+    var selectedIndexes = [IndexPath]()
+    
+    var reloading = false
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -41,6 +45,21 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 30
+    }
+    
+    func headerTouched(sender: TapHeader) {
+        print("touched header")
+        let section = sender.index!
+        self.expandedSection = section
+        self.expandSection()
+        
+        let itemCount = self.categorias[section].count
+        //var indexes = [IndexPath]()
+        for var i in (0..<itemCount) {
+            //indexes.append(IndexPath(row: i, section: section))
+            let index = IndexPath(row: i, section: section)
+            tableView.selectRow(at: index, animated: false, scrollPosition: UITableViewScrollPosition.middle)
+        }
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -62,9 +81,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         default:
             break
         }
+
+        let onTouchRecognizer = TapHeader.init(target: self, action: #selector(self.headerTouched(sender:)))
+        onTouchRecognizer.index = section
+        cell.addGestureRecognizer(onTouchRecognizer)
         
         cell.config(categoryText: element)
-                
+
         return cell
     }
     
@@ -73,7 +96,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if (self.expandedSections.contains(section)) {
+        if (self.expandedSection == section) {
             return self.categorias[section].count
         } else {
             return self.categorias[section].count > 3 ? 4 : self.categorias[section].count
@@ -82,7 +105,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //verificar se esta deve exibir o botao de ver mais
-        if ( indexPath.row == 3 && !expandedSections.contains(indexPath.section)) {
+        if ( indexPath.row == 3 && expandedSection != indexPath.section) {
             return tableView.dequeueReusableCell(withIdentifier: ViewMoreUITableViewCell.instanceNib) as! ViewMoreUITableViewCell
         }
         
@@ -96,36 +119,48 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
 
+
     
     // MARK: DELEGATE METHODS
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("selected")
         
-        if let element = tableView.cellForRow(at: indexPath) as? RegularUITableViewCell {
-            print("selecionou \(String(describing: element.itemLabel.text!))")
-
-        } else if tableView.cellForRow(at: indexPath) as? ViewMoreUITableViewCell != nil {
+        if tableView.cellForRow(at: indexPath) as? ViewMoreUITableViewCell != nil {
             print("ver mais selecionado")
-            self.expandedSections.removeAll()
-            self.expandedSections.append(indexPath.section);
-            tableView.reloadData()
+            self.expandedSection = indexPath.section;
+            self.expandSection()
         }
+    }
+    
+    func expandSection() {
+        self.selectedIndexes = tableView.indexPathsForSelectedRows != nil ? tableView.indexPathsForSelectedRows! : [IndexPath]()
+        self.reloading = true;
+        self.tableView.reloadData()
+        
+        DispatchQueue.main.async(execute: {
+            for index in self.selectedIndexes {
+                self.tableView.selectRow(at: index, animated: false, scrollPosition: UITableViewScrollPosition.middle)
+            }
+        })
+        
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         
-        if let element = tableView.cellForRow(at: indexPath) as? RegularUITableViewCell {
+        /*if let element = tableView.cellForRow(at: indexPath) as? RegularUITableViewCell {
             print("deselecionou \(String(describing: element.itemLabel.text!))")
-        }
+        }*/
     }
     
     @IBAction func onPrintAction(_ sender: UIButton) {
         
         let indexPaths = tableView.indexPathsForSelectedRows
         if (indexPaths != nil) {
+            print("Itens selecionados:")
             for indexPath in indexPaths! {
-                let currentCell = tableView.cellForRow(at: indexPath) as! RegularUITableViewCell
-        
-                print(currentCell.itemLabel.text!)
+                if let currentCell = tableView.cellForRow(at: indexPath) as? RegularUITableViewCell {
+                    print(currentCell.itemLabel.text!)
+                }
             }
         }
         

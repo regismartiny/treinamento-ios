@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F4F1F3CB1F101D2B00055C4F /* TapHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F1F3CA1F101D2B00055C4F /* TapHeader.swift */; };
 		F4F6C50D1F0E675F00EE9643 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F6C50C1F0E675F00EE9643 /* AppDelegate.swift */; };
 		F4F6C50F1F0E675F00EE9643 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F6C50E1F0E675F00EE9643 /* ViewController.swift */; };
 		F4F6C5121F0E675F00EE9643 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4F6C5101F0E675F00EE9643 /* Main.storyboard */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F4F1F3CA1F101D2B00055C4F /* TapHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TapHeader.swift; sourceTree = "<group>"; };
 		F4F6C5091F0E675F00EE9643 /* ExercicioTableView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExercicioTableView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4F6C50C1F0E675F00EE9643 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F4F6C50E1F0E675F00EE9643 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 				F4F6C51E1F0E6A2500EE9643 /* HeaderUITableViewCell.swift */,
 				F4F6C5201F0E6A3500EE9643 /* RegularUITableViewCell.swift */,
 				F4F6C5221F0E7F1300EE9643 /* ViewMoreUITableViewCell.swift */,
+				F4F1F3CA1F101D2B00055C4F /* TapHeader.swift */,
 			);
 			path = ExercicioTableView;
 			sourceTree = "<group>";
@@ -145,6 +148,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4F1F3CB1F101D2B00055C4F /* TapHeader.swift in Sources */,
 				F4F6C50F1F0E675F00EE9643 /* ViewController.swift in Sources */,
 				F4F6C51F1F0E6A2500EE9643 /* HeaderUITableViewCell.swift in Sources */,
 				F4F6C5211F0E6A3500EE9643 /* RegularUITableViewCell.swift in Sources */,
