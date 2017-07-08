@@ -54,9 +54,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.expandSection()
         
         let itemCount = self.categorias[section].count
-        //var indexes = [IndexPath]()
         for var i in (0..<itemCount) {
-            //indexes.append(IndexPath(row: i, section: section))
             let index = IndexPath(row: i, section: section)
             tableView.selectRow(at: index, animated: false, scrollPosition: UITableViewScrollPosition.middle)
         }
@@ -118,6 +116,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return cell
     }
     
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if (self.reloading) {
+            for index in self.selectedIndexes {
+                self.tableView.selectRow(at: index, animated: false, scrollPosition: UITableViewScrollPosition.middle)
+            }
+            self.reloading = false
+        }
+    }
+    
 
 
     
@@ -136,14 +144,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.selectedIndexes = tableView.indexPathsForSelectedRows != nil ? tableView.indexPathsForSelectedRows! : [IndexPath]()
         self.reloading = true;
         self.tableView.reloadData()
-        
-        DispatchQueue.main.async(execute: {
-            for index in self.selectedIndexes {
-                self.tableView.selectRow(at: index, animated: false, scrollPosition: UITableViewScrollPosition.middle)
-            }
-        })
-        
     }
+    
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         
