@@ -22,8 +22,36 @@ struct Person {
     static func getPerson(_ id: Int, completion: @escaping (_ person: Person?, _ error: Int) -> Void) {
         Network.load(url: "people/\(id)") { (json, error) in
             if error == 0 {
-                print(json)
                 completion(Person(json: json), error)
+            } else {
+                completion(nil, error)
+            }
+        }
+    }
+    
+    static func getPerson(_ name: String, completion: @escaping (_ person: Person?, _ error: Int) -> Void) {
+        Network.load(url: "people/?search=\(name)") { (json, error) in
+            if error == 0 {
+                completion(Person(json: json), error)
+            } else {
+                completion(nil, error)
+            }
+        }
+    }
+    
+    static func getAll(completion: @escaping (_ person: [Person]?, _ error: Int) -> Void) {
+        Network.load(url: "people") { (json, error) in
+            
+            var people = [Person]()
+            
+            if let results = json["results"] as? [JSON] {
+                for person in results {
+                    people.append(Person(json: person))
+                }
+            }
+            
+            if error == 0 {
+                completion(people, error)
             } else {
                 completion(nil, error)
             }
