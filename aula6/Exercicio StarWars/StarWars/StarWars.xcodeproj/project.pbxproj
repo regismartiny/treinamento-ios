@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		6FFECE4FD842E82CF3E9F957 /* Pods_StarWars.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C89F65282CB796F8A4D9A76 /* Pods_StarWars.framework */; };
 		F4443D3F1F1125850033A398 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4443D3E1F1125850033A398 /* AppDelegate.swift */; };
-		F4443D411F1125850033A398 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4443D401F1125850033A398 /* ViewController.swift */; };
+		F4443D411F1125850033A398 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4443D401F1125850033A398 /* HomeViewController.swift */; };
 		F4443D441F1125850033A398 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4443D421F1125850033A398 /* Main.storyboard */; };
 		F4443D461F1125850033A398 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4443D451F1125850033A398 /* Assets.xcassets */; };
 		F4443D491F1125850033A398 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4443D471F1125850033A398 /* LaunchScreen.storyboard */; };
@@ -17,6 +17,10 @@
 		F4443D531F1141010033A398 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4443D521F1141010033A398 /* SearchViewController.swift */; };
 		F4686F401F11458300B06251 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4686F3F1F11458300B06251 /* DetailViewController.swift */; };
 		F4686F421F1149EE00B06251 /* TableCellRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4686F411F1149EE00B06251 /* TableCellRow.swift */; };
+		F4686F441F115A8000B06251 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4686F431F115A8000B06251 /* Reachability.swift */; };
+		F4686F461F115A9E00B06251 /* DataResponseExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4686F451F115A9E00B06251 /* DataResponseExtension.swift */; };
+		F4686F481F115AC400B06251 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4686F471F115AC400B06251 /* Network.swift */; };
+		F4686F4A1F115B6000B06251 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4686F491F115B6000B06251 /* Person.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,7 +29,7 @@
 		D36106FE8A180FF3F75BA309 /* Pods-StarWars.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StarWars.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StarWars/Pods-StarWars.debug.xcconfig"; sourceTree = "<group>"; };
 		F4443D3B1F1125850033A398 /* StarWars.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StarWars.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4443D3E1F1125850033A398 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F4443D401F1125850033A398 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F4443D401F1125850033A398 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		F4443D431F1125850033A398 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F4443D451F1125850033A398 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F4443D481F1125850033A398 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -34,6 +38,10 @@
 		F4443D521F1141010033A398 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		F4686F3F1F11458300B06251 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		F4686F411F1149EE00B06251 /* TableCellRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableCellRow.swift; sourceTree = "<group>"; };
+		F4686F431F115A8000B06251 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		F4686F451F115A9E00B06251 /* DataResponseExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataResponseExtension.swift; sourceTree = "<group>"; };
+		F4686F471F115AC400B06251 /* Network.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		F4686F491F115B6000B06251 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,7 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				F4443D3E1F1125850033A398 /* AppDelegate.swift */,
-				F4443D401F1125850033A398 /* ViewController.swift */,
+				F4443D401F1125850033A398 /* HomeViewController.swift */,
 				F4443D421F1125850033A398 /* Main.storyboard */,
 				F4443D451F1125850033A398 /* Assets.xcassets */,
 				F4443D471F1125850033A398 /* LaunchScreen.storyboard */,
@@ -96,6 +104,10 @@
 				F4443D521F1141010033A398 /* SearchViewController.swift */,
 				F4686F3F1F11458300B06251 /* DetailViewController.swift */,
 				F4686F411F1149EE00B06251 /* TableCellRow.swift */,
+				F4686F431F115A8000B06251 /* Reachability.swift */,
+				F4686F451F115A9E00B06251 /* DataResponseExtension.swift */,
+				F4686F471F115AC400B06251 /* Network.swift */,
+				F4686F491F115B6000B06251 /* Person.swift */,
 			);
 			path = StarWars;
 			sourceTree = "<group>";
@@ -223,9 +235,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F4443D411F1125850033A398 /* ViewController.swift in Sources */,
+				F4686F4A1F115B6000B06251 /* Person.swift in Sources */,
+				F4686F441F115A8000B06251 /* Reachability.swift in Sources */,
+				F4443D411F1125850033A398 /* HomeViewController.swift in Sources */,
 				F4443D531F1141010033A398 /* SearchViewController.swift in Sources */,
 				F4686F401F11458300B06251 /* DetailViewController.swift in Sources */,
+				F4686F461F115A9E00B06251 /* DataResponseExtension.swift in Sources */,
+				F4686F481F115AC400B06251 /* Network.swift in Sources */,
 				F4686F421F1149EE00B06251 /* TableCellRow.swift in Sources */,
 				F4443D511F112A160033A398 /* RoundShadowedView.swift in Sources */,
 				F4443D3F1F1125850033A398 /* AppDelegate.swift in Sources */,

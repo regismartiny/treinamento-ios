@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class HomeViewController: UIViewController {
 
     @IBOutlet weak var peopleButton: RoundShadowedView!
     @IBOutlet weak var starshipButton: RoundShadowedView!
@@ -31,7 +31,7 @@ class ViewController: UIViewController {
     func peopleButtonTapped(sender:UITapGestureRecognizer) {
         print("go to people")
         let mainStoryboard = self.storyboard
-        let vc : UIViewController = mainStoryboard!.instantiateViewController(withIdentifier: "people-view") as UIViewController
+        let vc : UIViewController = mainStoryboard!.instantiateViewController(withIdentifier: "search-view") as UIViewController
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
