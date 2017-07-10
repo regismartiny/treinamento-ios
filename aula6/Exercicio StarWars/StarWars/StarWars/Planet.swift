@@ -43,6 +43,25 @@ class Planet : Item {
         }
     }
     
+    static func getPlanets(_ name: String, completion: @escaping (_ planet: [Planet]?, _ error: Int) -> Void) {
+        Network.load(url: "planets/?search=\(name)") { (json, error) in
+            
+            var planets = [Planet]()
+            
+            if let results = json["results"] as? [JSON] {
+                for planet in results {
+                    planets.append(Planet(json: planet))
+                }
+            }
+            
+            if error == 0 {
+                completion(planets, error)
+            } else {
+                completion(nil, error)
+            }
+        }
+    }
+    
     static func getAll(completion: @escaping (_ planet: [Planet]?, _ error: Int) -> Void) {
         Network.load(url: "planets") { (json, error) in
             

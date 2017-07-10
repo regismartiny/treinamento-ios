@@ -12,6 +12,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     
     
     @IBOutlet weak var lblTitle: UILabel!
+    @IBOutlet weak var txtSearch: UITextField!
     @IBOutlet weak var myTableView: UITableView!
     @IBOutlet weak var loadingActivityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var imgProhibited: UIImageView!
@@ -24,16 +25,13 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         self.loadData()
         self.lblTitle.text = self.type.rawValue
     }
+
     
-    func doTableRefresh()
-    {
-        DispatchQueue.main.async(execute: {
-            self.myTableView.reloadData()
-            self.loadingActivityIndicator.stopAnimating()
-            self.imgProhibited.isHidden = !self.items.isEmpty
-            return
-        })
+    
+    @IBAction func txtSearchDidChange(_ sender: UITextField) {
+        self.search()
     }
+    
     
     @IBAction func goBackPressed(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
@@ -92,6 +90,70 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
             }
         }
         
+    }
+    
+    func search() {
+        switch self.type {
+        case .People:
+            Person.getPeople(self.txtSearch.text!) { (person, error) in
+                if let response = person {
+                    if error == 0 {
+                        self.items = response
+                        print(response)
+                    }
+                } else {
+                    print("Sem internet")
+                }
+                self.doTableRefresh()
+            }
+        case .Starship:
+            Starship.getStarships(self.txtSearch.text!) { (starship, error) in
+                if let response = starship {
+                    if error == 0 {
+                        self.items = response
+                        print(response)
+                    }
+                } else {
+                    print("Sem internet")
+                }
+                self.doTableRefresh()
+            }
+        case .Film:
+            Film.getFilms(self.txtSearch.text!) { (film, error) in
+                if let response = film {
+                    if error == 0 {
+                        self.items = response
+                        print(response)
+                    }
+                } else {
+                    print("Sem internet")
+                }
+                self.doTableRefresh()
+            }
+        case .Planet:
+            Planet.getPlanets(self.txtSearch.text!) { (planet, error) in
+                if let response = planet {
+                    if error == 0 {
+                        self.items = response
+                        print(response)
+                    }
+                } else {
+                    print("Sem internet")
+                }
+                self.doTableRefresh()
+            }
+        }
+        
+    }
+    
+    func doTableRefresh()
+    {
+        DispatchQueue.main.async(execute: {
+            self.myTableView.reloadData()
+            self.loadingActivityIndicator.stopAnimating()
+            self.imgProhibited.isHidden = !self.items.isEmpty
+            return
+        })
     }
     
     

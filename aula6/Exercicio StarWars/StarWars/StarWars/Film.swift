@@ -46,6 +46,25 @@ class Film : Item {
         }
     }
     
+    static func getFilms(_ name: String, completion: @escaping (_ film: [Film]?, _ error: Int) -> Void) {
+        Network.load(url: "films/?search=\(name)") { (json, error) in
+            
+            var films = [Film]()
+            
+            if let results = json["results"] as? [JSON] {
+                for film in results {
+                    films.append(Film(json: film))
+                }
+            }
+            
+            if error == 0 {
+                completion(films, error)
+            } else {
+                completion(nil, error)
+            }
+        }
+    }
+    
     static func getAll(completion: @escaping (_ film: [Film]?, _ error: Int) -> Void) {
         Network.load(url: "films") { (json, error) in
             

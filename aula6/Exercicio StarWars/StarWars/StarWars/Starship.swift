@@ -43,6 +43,25 @@ class Starship : Item {
         }
     }
     
+    static func getStarships(_ name: String, completion: @escaping (_ starship: [Starship]?, _ error: Int) -> Void) {
+        Network.load(url: "starships/?search=\(name)") { (json, error) in
+            
+            var starships = [Starship]()
+            
+            if let results = json["results"] as? [JSON] {
+                for starship in results {
+                    starships.append(Starship(json: starship))
+                }
+            }
+            
+            if error == 0 {
+                completion(starships, error)
+            } else {
+                completion(nil, error)
+            }
+        }
+    }
+    
     static func getAll(completion: @escaping (_ starship: [Starship]?, _ error: Int) -> Void) {
         Network.load(url: "starships") { (json, error) in
             
