@@ -8,15 +8,19 @@
 
 import Foundation
 
-struct Person {
-    var name: String
-    var birthYear: String
-    var eyeColor: String
+class Person : Item {
+    var height = String()
+    var mass = String()
+    var hairColor = String()
     
     init(json: JSON) {
-        self.name = json["name"] as! String
-        self.birthYear = json["birth_year"] as! String
-        self.eyeColor = json["eye_color"] as! String
+        let image = ""
+        let name = json["name"] as! String
+        self.height = json["height"] as! String
+        self.mass = json["mass"] as! String
+        self.hairColor = json["hair_color"] as! String
+        
+        super.init(image: image, name: name, leftPropertyName: "HEIGHT", leftPropertyValue: self.height, centerPropertyName: "MASS", centerPropertyValue: self.mass, rightPropertyName: "HAIR COLOR", rightPropertyValue: self.hairColor)
     }
     
     static func getPerson(_ id: Int, completion: @escaping (_ person: Person?, _ error: Int) -> Void) {

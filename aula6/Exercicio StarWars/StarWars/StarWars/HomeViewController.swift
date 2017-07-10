@@ -30,41 +30,33 @@ class HomeViewController: UIViewController {
     
     func peopleButtonTapped(sender:UITapGestureRecognizer) {
         print("go to people")
-        let mainStoryboard = self.storyboard
-        let vc : UIViewController = mainStoryboard!.instantiateViewController(withIdentifier: "search-view") as UIViewController
-        self.navigationController?.pushViewController(vc, animated: true)
+        self.goToSearch(ItemType.People)
     }
     
     func starshipButtonTapped(sender:UITapGestureRecognizer) {
         print("go to starship")
-        let mainStoryboard = self.storyboard
-        let vc : UIViewController = mainStoryboard!.instantiateViewController(withIdentifier: "starship-view") as UIViewController
-        self.navigationController?.pushViewController(vc, animated: true)
-        
+        self.goToSearch(ItemType.Starship)
     }
     
     func filmButtonTapped(sender:UITapGestureRecognizer) {
         print("go to film")
-        let mainStoryboard = self.storyboard
-        let vc : UIViewController = mainStoryboard!.instantiateViewController(withIdentifier: "film-view") as UIViewController
-        self.navigationController?.pushViewController(vc, animated: true)
+        self.goToSearch(ItemType.Film)
         
     }
     
     func planetsButtonTapped(sender:UITapGestureRecognizer) {
         print("go to planets")
-        let mainStoryboard = self.storyboard
-        let vc : UIViewController = mainStoryboard!.instantiateViewController(withIdentifier: "planets-view") as UIViewController
-        self.navigationController?.pushViewController(vc, animated: true)
+        self.goToSearch(ItemType.Planet)
         
     }
+    
+    func goToSearch(_ type: ItemType) {
+        let mainStoryboard = self.storyboard
+        let vc = mainStoryboard!.instantiateViewController(withIdentifier: "search-view") as!SearchViewController
+        vc.type = type
+        self.navigationController?.pushViewController(vc, animated: true)
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-    
-    
 
 
 }

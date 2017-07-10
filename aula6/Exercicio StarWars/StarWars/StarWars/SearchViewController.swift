@@ -11,13 +11,29 @@ import UIKit
 class SearchViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     
+    @IBOutlet weak var lblTitle: UILabel!
     @IBOutlet weak var myTableView: UITableView!
-    var items = [Person]()
+    @IBOutlet weak var loadingActivityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var imgProhibited: UIImageView!
+    
+    var type = ItemType.People
+    var items = [Item]()
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         self.loadData()
+        self.lblTitle.text = self.type.rawValue
     }
     
+    func doTableRefresh()
+    {
+        DispatchQueue.main.async(execute: {
+            self.myTableView.reloadData()
+            self.loadingActivityIndicator.stopAnimating()
+            self.imgProhibited.isHidden = !self.items.isEmpty
+            return
+        })
+    }
     
     @IBAction func goBackPressed(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
@@ -25,48 +41,93 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     
     
     func loadData() {
-        Person.getAll() { (person, error) in
-            if let response = person {
-                if error == 0 {
-                    self.items = response
-                    print(response)
+        switch self.type {
+        case .People:
+            Person.getAll() { (person, error) in
+                if let response = person {
+                    if error == 0 {
+                        self.items = response
+                        print(response)
+                    }
+                } else {
+                    print("Sem internet")
                 }
-            } else {
-                print("Sem internet")
+                self.doTableRefresh()
             }
-            
-            self.myTableView.reloadData()
-            print("OK")
-            //self.loaderActivityIndicator.stopAnimating()
+        case .Starship:
+            Starship.getAll() { (starship, error) in
+                if let response = starship {
+                    if error == 0 {
+                        self.items = response
+                        print(response)
+                    }
+                } else {
+                    print("Sem internet")
+                }
+                self.doTableRefresh()
+            }
+        case .Film:
+            Film.getAll() { (film, error) in
+                if let response = film {
+                    if error == 0 {
+                        self.items = response
+                        print(response)
+                    }
+                } else {
+                    print("Sem internet")
+                }
+                self.doTableRefresh()
+            }
+        case .Planet:
+            Planet.getAll() { (planet, error) in
+                if let response = planet {
+                    if error == 0 {
+                        self.items = response
+                        print(response)
+                    }
+                } else {
+                    print("Sem internet")
+                }
+                self.doTableRefresh()
+            }
         }
+        
     }
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.items.count < 6 ? self.items.count : 6 ///Exibir apenas 6 itens
     }
+
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
+    }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: TableCellRow.instanceNib) as! TableCellRow
         
-        let person = self.items[indexPath.row]
-        //let item = element as! Person
+        let item = self.items[indexPath.row]
         
-        cell.config(itemImage: nil, itemText: person.name)
+        cell.config(itemImage: nil, itemText: item.name)
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("selected")
+        
+        let item = self.items[indexPath.row]
+        
         let mainStoryboard = self.storyboard
-        let vc : UIViewController = mainStoryboard!.instantiateViewController(withIdentifier: "detail-view") as UIViewController
+        let vc = mainStoryboard!.instantiateViewController(withIdentifier: "detail-view") as! DetailViewController
+        vc.type = self.type
+        vc.object = item
         self.navigationController?.pushViewController(vc, animated: true)
         
     }
