@@ -17,21 +17,25 @@ public class PersonLocal: NSManagedObject {
     
     static let entityName = "PersonLocal"
     
-    func create(image: NSData, name: String, height: String, mass: String, hairColor: String) -> PersonLocal {
+    func create(person: Person) -> PersonLocal {
         
         let newItem = NSEntityDescription.insertNewObject(forEntityName: PersonLocal.entityName, into: context) as! PersonLocal
         
-        newItem.image = image
-        newItem.name = name
-        newItem.height = height
-        newItem.mass = mass
-        newItem.hairColor = hairColor
+        newItem.image = NSData()
+        newItem.name = person.name
+        newItem.height = person.height
+        newItem.mass = person.mass
+        newItem.hairColor = person.hairColor
         
         return newItem
     }
     
     func getById(id: NSManagedObjectID) -> PersonLocal? {
         return context.object(with: id) as? PersonLocal
+    }
+    
+    func getByName(name: String) -> [PersonLocal]? {
+        return self.get(withPredicate: NSPredicate(format: "name == %@", name))
     }
     
     func get(withPredicate queryPredicate: NSPredicate) -> [PersonLocal]{

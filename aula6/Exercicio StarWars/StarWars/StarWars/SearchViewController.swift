@@ -39,6 +39,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     
     
     func loadData() {
+        //DataManager.deleteAll()
         if Reachability.isConnectedToNetwork() {
         switch self.type {
         case .People:
@@ -51,7 +52,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
                 } else {
                     print("Sem internet")
                 }
-                DataManager.saveAll(people: self.items as! [Person], completion: { (error) in
+                DataManager.saveOrUpdateAll(people: self.items as! [Person], completion: { (error) in
                     print("People saved.")
                 })
                 self.doTableRefresh()
@@ -95,13 +96,21 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         }
         }
         else {
-            let alertController = UIAlertController.init(title: "Sem internet", message: "Você não está conectado. Os dados podem estar desatualizados.", preferredStyle: .alert)
+            switch self.type {
+            case .People:
+                let alertController = UIAlertController.init(title: "Sem internet", message: "Você não está conectado. Os dados podem estar desatualizados.",    preferredStyle: .alert)
             
-            self.navigationController?.present(alertController, animated: true, completion: nil)
+                let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
             
-            DataManager.getAll() { (people, error) in
-                self.items = people
-                self.doTableRefresh()
+                alertController.addAction(alertAction)
+            
+                self.navigationController?.present(alertController, animated: true, completion: nil)
+            
+                DataManager.getAll() { (people, error) in
+                    self.items = people
+                    self.doTableRefresh()
+                }
+            default: ""
             }
         }
         
@@ -173,7 +182,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.items.count < 6 ? self.items.count : 6 ///Exibir apenas 6 itens
+        return self.items.count
     }
 
     

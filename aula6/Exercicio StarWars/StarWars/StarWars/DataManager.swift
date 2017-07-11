@@ -12,71 +12,35 @@ import CoreData
 
 class DataManager {
     
-    class func saveAll(people: [Person], completion: @escaping (_ error: Int) -> Void) {
+    class func saveOrUpdateAll(people: [Person], completion: @escaping (_ error: Int) -> Void) {
         
-        
-        guard let appDelegate =
-            UIApplication.shared.delegate as? AppDelegate else {
-                return
-        }
-        
-        // 1
-        let managedContext =
-            appDelegate.persistentContainer.viewContext
-        
-        // 2
-        let entity =
-            NSEntityDescription.entity(forEntityName: "PersonLocal",
-                                       in: managedContext)!
-        
-        let personLocal = NSManagedObject(entity: entity,
-                                     insertInto: managedContext)
-        
+        let pl = PersonLocal()
         
         for person in people {
-            // 3
-
-            personLocal.setValue(NSData(), forKey: "image")
-            personLocal.setValue(person.name, forKey: "name")
-            personLocal.setValue(person.height, forKey: "height")
-            personLocal.setValue(person.mass, forKey: "mass")
-            personLocal.setValue(person.hairColor, forKey: "hairColor")
-            
-            //4
-            do {
-                try managedContext.save()
-                print("Person saved: ")
-                print(person)
-            } catch let error as NSError {
-                print("Could not save. \(error), \(error.userInfo)")
+            if let personLocal = pl.getByName(name: person.name) {
+                if personLocal.count > 0 {
+                    pl.update(updatedPersonLocal: personLocal[0])
+                }
+            } else {
+                pl.create(person: person)
             }
         }
         
         completion(0)
+        
     }
+
     
     class func getAll(completion: @escaping (_ people: [Person], _ error: Int) -> Void) {
-        guard let appDelegate =
-            UIApplication.shared.delegate as? AppDelegate else {
-                return
-        }
         
-        let managedContext =
-            appDelegate.persistentContainer.viewContext
-    
-        
-        var peopleLocal = [PersonLocal]()
-
-        
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "PersonLocal")
-        do {
-            peopleLocal = try managedContext.fetch(fetchRequest) as! [PersonLocal]
-        } catch let error as NSError {
-            print("Could not fetch. \(error), \(error.userInfo)")
-        }
+        let pl = PersonLocal()
         
         var people = [Person]()
-        
+
+        let  peopleLocal = pl.getAll()
+            
+        print("Total people in base: \(peopleLocal.count)")
+            
         for personLocal in peopleLocal {
             let person = Person(image: personLocal.image, name: personLocal.name!, height: personLocal.height!, mass: personLocal.mass!, hairColor: personLocal.hairColor!)
             people.append(person)
@@ -85,5 +49,14 @@ class DataManager {
         }
         
         completion(people, 0)
+    }
+    
+    class func deleteAll() {
+        
+        
+        let pl = PersonLocal()
+        for person in pl.getAll() {
+            pl.delete(id: person.objectID)
+        }
     }
 }
