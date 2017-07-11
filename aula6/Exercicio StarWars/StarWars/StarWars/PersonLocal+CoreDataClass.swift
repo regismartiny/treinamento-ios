@@ -13,11 +13,11 @@ import UIKit
 
 public class PersonLocal: NSManagedObject {
     
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    static let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     static let entityName = "PersonLocal"
     
-    func create(person: Person) -> PersonLocal {
+    class func create(person: Person) -> PersonLocal {
         
         let newItem = NSEntityDescription.insertNewObject(forEntityName: PersonLocal.entityName, into: context) as! PersonLocal
         
@@ -30,15 +30,15 @@ public class PersonLocal: NSManagedObject {
         return newItem
     }
     
-    func getById(id: NSManagedObjectID) -> PersonLocal? {
+    class func getById(id: NSManagedObjectID) -> PersonLocal? {
         return context.object(with: id) as? PersonLocal
     }
     
-    func getByName(name: String) -> [PersonLocal]? {
+    class func getByName(name: String) -> [PersonLocal]? {
         return self.get(withPredicate: NSPredicate(format: "name == %@", name))
     }
     
-    func get(withPredicate queryPredicate: NSPredicate) -> [PersonLocal]{
+    class func get(withPredicate queryPredicate: NSPredicate) -> [PersonLocal]{
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: PersonLocal.entityName)
         
         fetchRequest.predicate = queryPredicate
@@ -53,11 +53,11 @@ public class PersonLocal: NSManagedObject {
         }
     }
     
-    func getAll() -> [PersonLocal]{
+    class func getAll() -> [PersonLocal]{
         return get(withPredicate: NSPredicate(value:true))
     }
     
-    func update(updatedPersonLocal: PersonLocal){
+    class func update(updatedPersonLocal: PersonLocal){
         if let PersonLocal = getById(id: updatedPersonLocal.objectID){
             PersonLocal.image = updatedPersonLocal.image
             PersonLocal.name = updatedPersonLocal.name
@@ -67,7 +67,7 @@ public class PersonLocal: NSManagedObject {
         }
     }
     
-    func delete(id: NSManagedObjectID){
+    class func delete(id: NSManagedObjectID){
         if let PersonLocalToDelete = getById(id: id){
             context.delete(PersonLocalToDelete)
         }
