@@ -39,8 +39,8 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     
     
     func loadData() {
-        //DataManager.deleteAll()
-        if Reachability.isConnectedToNetwork() {
+        DataManager.deleteAll()
+        if true/*Reachability.isConnectedToNetwork()*/ {
         switch self.type {
         case .People:
             Person.getAll() { (person, error) in
