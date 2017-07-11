@@ -39,6 +39,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     
     
     func loadData() {
+        if Reachability.isConnectedToNetwork() {
         switch self.type {
         case .People:
             Person.getAll() { (person, error) in
@@ -50,6 +51,9 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
                 } else {
                     print("Sem internet")
                 }
+                DataManager.saveAll(people: self.items as! [Person], completion: { (error) in
+                    print("People saved.")
+                })
                 self.doTableRefresh()
             }
         case .Starship:
@@ -86,6 +90,17 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
                 } else {
                     print("Sem internet")
                 }
+                self.doTableRefresh()
+            }
+        }
+        }
+        else {
+            let alertController = UIAlertController.init(title: "Sem internet", message: "Você não está conectado. Os dados podem estar desatualizados.", preferredStyle: .alert)
+            
+            self.navigationController?.present(alertController, animated: true, completion: nil)
+            
+            DataManager.getAll() { (people, error) in
+                self.items = people
                 self.doTableRefresh()
             }
         }
