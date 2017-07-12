@@ -27,6 +27,8 @@ public class PersonLocal: NSManagedObject {
         newItem.mass = person.mass
         newItem.hairColor = person.hairColor
         
+        self.save()
+        
         return newItem
     }
     
@@ -70,6 +72,15 @@ public class PersonLocal: NSManagedObject {
     class func delete(id: NSManagedObjectID){
         if let PersonLocalToDelete = getById(id: id){
             context.delete(PersonLocalToDelete)
+        }
+        self.save()
+    }
+    
+    class func save() {
+        do {
+            try context.save()
+        } catch {
+            fatalError("Context save failed!")
         }
     }
 

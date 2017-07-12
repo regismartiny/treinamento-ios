@@ -39,8 +39,8 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     
     
     func loadData() {
-        DataManager.deleteAll()
-        if true/*Reachability.isConnectedToNetwork()*/ {
+        //DataManager.deleteAll()
+        if Reachability.isConnectedToNetwork() {
         switch self.type {
         case .People:
             Person.getAll() { (person, error) in
@@ -54,6 +54,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
                 }
                 DataManager.saveOrUpdateAll(people: self.items as! [Person], completion: { (error) in
                     print("People saved.")
+                    
                 })
                 self.doTableRefresh()
             }
