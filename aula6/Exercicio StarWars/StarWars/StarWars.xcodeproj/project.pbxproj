@@ -125,10 +125,35 @@
 		F413E8FF1F14FCE2000C8245 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				F4443D501F112A160033A398 /* RoundShadowedView.swift */,
+				F4686F411F1149EE00B06251 /* TableCellRow.swift */,
 				F4443D421F1125850033A398 /* Main.storyboard */,
 				F4443D471F1125850033A398 /* LaunchScreen.storyboard */,
 			);
 			name = Screens;
+			sourceTree = "<group>";
+		};
+		F427617E1F1650AE001FBA9D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F4686F491F115B6000B06251 /* Person.swift */,
+				F43FBA211F13A87C00ABECA5 /* Starship.swift */,
+				F43FBA1F1F13A29500ABECA5 /* Item.swift */,
+				F43FBA231F13A93D00ABECA5 /* Film.swift */,
+				F43FBA251F13A94400ABECA5 /* Planet.swift */,
+				F43FBA2D1F13CCFA00ABECA5 /* ItemTypes.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		F427617F1F1650D3001FBA9D /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				F4686F451F115A9E00B06251 /* DataResponseExtension.swift */,
+				F4686F431F115A8000B06251 /* Reachability.swift */,
+				F4686F471F115AC400B06251 /* Network.swift */,
+			);
+			name = Util;
 			sourceTree = "<group>";
 		};
 		F4443D321F1125850033A398 = {
@@ -152,21 +177,12 @@
 		F4443D3D1F1125850033A398 /* StarWars */ = {
 			isa = PBXGroup;
 			children = (
+				F427617F1F1650D3001FBA9D /* Util */,
+				F427617E1F1650AE001FBA9D /* Model */,
 				F413E8FE1F14FCCD000C8245 /* Data */,
 				F413E8FD1F14FCC5000C8245 /* SupportingFiles */,
 				F413E8FC1F14FCAF000C8245 /* Controllers */,
 				F413E8FF1F14FCE2000C8245 /* Screens */,
-				F4443D501F112A160033A398 /* RoundShadowedView.swift */,
-				F4686F411F1149EE00B06251 /* TableCellRow.swift */,
-				F4686F431F115A8000B06251 /* Reachability.swift */,
-				F4686F451F115A9E00B06251 /* DataResponseExtension.swift */,
-				F4686F471F115AC400B06251 /* Network.swift */,
-				F4686F491F115B6000B06251 /* Person.swift */,
-				F43FBA211F13A87C00ABECA5 /* Starship.swift */,
-				F43FBA1F1F13A29500ABECA5 /* Item.swift */,
-				F43FBA231F13A93D00ABECA5 /* Film.swift */,
-				F43FBA251F13A94400ABECA5 /* Planet.swift */,
-				F43FBA2D1F13CCFA00ABECA5 /* ItemTypes.swift */,
 			);
 			path = StarWars;
 			sourceTree = "<group>";

@@ -24,7 +24,7 @@ class DataManager {
                 i = i + 1
             }
         }
-        print("Creates: \(i)")
+        print("People created: \(i)")
         completion(0)
         
     }
@@ -47,6 +47,7 @@ class DataManager {
         
         completion(people, 0)
     }
+    
     
     class func deleteAll() {
         
