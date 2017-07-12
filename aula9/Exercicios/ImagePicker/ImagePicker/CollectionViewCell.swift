@@ -13,15 +13,14 @@ class CollectionViewCell: UICollectionViewCell {
     
     public static let identifier = "cell"
     
+    @IBOutlet weak var img: UIImageView!
+    
+    
     override func awakeFromNib() {
         
     }
     
-    func setFirstImage(_ firstImage: UIImage) {
-        
-    }
-    
-    func setSecondImage(_ secondImage: UIImage) {
-        
+    func setImage(_ image: UIImage) {
+        self.img.image = image
     }
 }

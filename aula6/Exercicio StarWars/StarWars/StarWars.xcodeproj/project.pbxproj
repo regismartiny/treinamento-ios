@@ -132,7 +132,7 @@
 			name = SupportingFiles;
 			sourceTree = "<group>";
 		};
-		F413E8FE1F14FCCD000C8245 /* Data */ = {
+		F413E8FE1F14FCCD000C8245 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
 				F4048E881F150C8D00C06F44 /* PersonLocal+CoreDataClass.swift */,
@@ -140,7 +140,7 @@
 				F413E8F91F14FC99000C8245 /* Model.xcdatamodeld */,
 				F413E9101F1503C1000C8245 /* DataManager.swift */,
 			);
-			name = Data;
+			name = CoreData;
 			sourceTree = "<group>";
 		};
 		F413E8FF1F14FCE2000C8245 /* Screens */ = {
@@ -202,7 +202,7 @@
 			children = (
 				F427617F1F1650D3001FBA9D /* Util */,
 				F427617E1F1650AE001FBA9D /* Model */,
-				F413E8FE1F14FCCD000C8245 /* Data */,
+				F413E8FE1F14FCCD000C8245 /* CoreData */,
 				F413E8FD1F14FCC5000C8245 /* SupportingFiles */,
 				F413E8FC1F14FCAF000C8245 /* Controllers */,
 				F413E8FF1F14FCE2000C8245 /* Screens */,

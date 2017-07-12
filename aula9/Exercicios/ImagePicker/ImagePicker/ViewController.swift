@@ -15,12 +15,15 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
     }
     
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
-        self.addImageToCollection(image)
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, info: [String : AnyObject]!) {
+        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            self.addImageToCollection(image)
+        } else{
+            print("Something went wrong")
+        }
+        
         self.dismiss(animated: true, completion: nil);
     }
     
@@ -39,13 +42,15 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             let imagePicker = UIImagePickerController()
             imagePicker.delegate = self
             imagePicker.sourceType = UIImagePickerControllerSourceType.photoLibrary;
-            imagePicker.allowsEditing = true
+            imagePicker.allowsEditing = false
             self.present(imagePicker, animated: true, completion: nil)
         }
     }
     
     func addImageToCollection(_ image: UIImage) {
-        
+        self.images.append(image)
+        self.collectionView.reloadData()
+        print("image added to collection")
     }
     
     
@@ -65,14 +70,20 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                                                       for: indexPath) as! CollectionViewCell
         cell.backgroundColor = UIColor.black
         if (self.images.count > indexPath.row) {
-            cell.setFirstImage(self.images[indexPath.row])
+            cell.setImage(self.images[indexPath.row])
         }
-        if (self.images.count > indexPath.row + 1) {
-            cell.setSecondImage(self.images[indexPath.row + 1])
-        }
-        
         
         return cell
+    }
+    
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        
+        let padding =  50
+        let collectionViewSize = self.collectionView.frame.size.width.subtracting(CGFloat(padding))
+        let halfSize = collectionViewSize.divided(by: CGFloat(2))
+        return CGSize(width: halfSize, height: halfSize)
+        
     }
 
     
