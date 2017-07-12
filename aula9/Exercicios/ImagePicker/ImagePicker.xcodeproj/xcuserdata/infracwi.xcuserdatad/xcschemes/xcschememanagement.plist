@@ -4,7 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>DemoTests.xcscheme</key>
+		<key>ImagePicker.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
@@ -12,17 +12,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>F43D56C41F16434D002DAD76</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>F43D56D81F16434E002DAD76</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>F43D56E31F16434E002DAD76</key>
+		<key>F489C5231F1652DC0073C2EC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
