@@ -23,34 +23,42 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t8z-Zb-YSR" customClass="CenterView" customModule="Animacoes" customModuleProvider="target">
                                 <rect key="frame" x="137.5" y="283.5" width="100" height="100"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="backgroundColor" red="0.92806832900000003" green="0.042376228160000001" blue="0.06560255811" alpha="0.92822953350000004" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="WK7-EM-GXF"/>
                                     <constraint firstAttribute="height" constant="100" id="ryy-8H-SaB"/>
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="elb-5w-cxj">
-                                <rect key="frame" x="87" y="20" width="201" height="170"/>
+                                <rect key="frame" x="87" y="20" width="201" height="135"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cl1-hX-cg2">
                                         <rect key="frame" x="0.0" y="0.0" width="201" height="30"/>
                                         <state key="normal" title="Encolher 20 dpis de largura"/>
+                                        <connections>
+                                            <action selector="actionShrink20Width:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fF6-DN-cJS"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m3e-3w-cqw">
                                         <rect key="frame" x="0.0" y="35" width="201" height="30"/>
                                         <state key="normal" title="Encolher 20 dpis de altura"/>
+                                        <connections>
+                                            <action selector="actionShrinkHeightBy20:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jsF-h3-cTG"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3cs-9b-rKi">
                                         <rect key="frame" x="0.0" y="70" width="201" height="30"/>
                                         <state key="normal" title="Mover 50 dpis para direita"/>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="neD-LX-phS">
-                                        <rect key="frame" x="0.0" y="105" width="201" height="30"/>
-                                        <state key="normal" title="Mover 50 dpis para direita"/>
+                                        <connections>
+                                            <action selector="actionMoveRightBy50:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Rl9-Y6-AhS"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9nS-Ka-dgQ">
-                                        <rect key="frame" x="0.0" y="140" width="201" height="30"/>
+                                        <rect key="frame" x="0.0" y="105" width="201" height="30"/>
                                         <state key="normal" title="Mover 50 dpis para esquerda"/>
+                                        <connections>
+                                            <action selector="actionMoveLeftBy50:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Fc6-o9-4PA"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -60,26 +68,44 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z22-mO-k6A">
                                         <rect key="frame" x="0.0" y="0.0" width="235" height="30"/>
                                         <state key="normal" title="Mover 50 dpis para cima"/>
+                                        <connections>
+                                            <action selector="actionMoveUpBy50:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4m5-ER-M7V"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NLq-m7-0tP">
                                         <rect key="frame" x="0.0" y="35" width="235" height="30"/>
                                         <state key="normal" title="Mover 50 dpis para baixo"/>
+                                        <connections>
+                                            <action selector="actionMoveDownBy50:" destination="BYZ-38-t0r" eventType="touchUpInside" id="C3p-L2-An1"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zaD-AD-0k3">
                                         <rect key="frame" x="0.0" y="70" width="235" height="30"/>
                                         <state key="normal" title="Fade in"/>
+                                        <connections>
+                                            <action selector="actionFadeIn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lqH-li-3Zv"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c5T-uY-CXl">
                                         <rect key="frame" x="0.0" y="105" width="235" height="30"/>
                                         <state key="normal" title="Fade out"/>
+                                        <connections>
+                                            <action selector="actionFadeOut:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6ax-1k-2V6"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n7p-S5-Y2u">
                                         <rect key="frame" x="0.0" y="140" width="235" height="30"/>
                                         <state key="normal" title="Deixar a view redonda"/>
+                                        <connections>
+                                            <action selector="actionMakeItRounded:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1Qi-w5-NEH"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZQL-J3-DLR">
                                         <rect key="frame" x="0.0" y="175" width="235" height="30"/>
                                         <state key="normal" title="Deixar a view retangular/quadrada"/>
+                                        <connections>
+                                            <action selector="actionMakeItSquared:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Xpl-Ij-49G"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -94,6 +120,9 @@
                             <constraint firstItem="Qby-2R-cFT" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="zcv-Di-xmf"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="centerView" destination="t8z-Zb-YSR" id="VFV-KT-6QH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
